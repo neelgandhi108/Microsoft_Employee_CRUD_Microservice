@@ -1,16 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft_Employee_CRUD_Microservice.Models.Domain;
 using Microsoft_Employee_CRUD_Microservice.Services;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace Microsoft_Employee_CRUD_Microservice.Controllers
 {
     public class EmployeeController : Controller
     {
         private readonly IEmployeeService _employeeService;
+        private readonly IMemoryCache _memoryCache;
+        private static readonly string EMPLOYEES = "employees";
 
-        public EmployeeController(IEmployeeService employeeService)
+        public EmployeeController(IEmployeeService employeeService, IMemoryCache memoryCache)
         {
             _employeeService = employeeService;
+            _memoryCache = memoryCache;
         }
 
         /// Display CRUD operations on billions of employees. Note that this is the index page for the API but it's used to be more flexible and easy to read.
@@ -68,17 +72,34 @@ namespace Microsoft_Employee_CRUD_Microservice.Controllers
         /// 
         /// 
         /// @return An ActionResult with the view data to render in the response to the request or null if the user is not logged in
+        [HttpGet]
         public IActionResult DisplayEmployees()
         {
-            var employees = _employeeService.GetAllEmployees();
+
+            // Try to get the cached employees
+            if (!_memoryCache.TryGetValue("employees", out IEnumerable<Employee> employees))
+            {
+                // Key not in cache, so get data from the service
+                employees = _employeeService.GetAllEmployees();
+
+                // Set cache options
+                var cacheEntryOptions = new MemoryCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(5)); // or use whatever expiration makes sense for your scenario
+
+                // Save data in cache
+                _memoryCache.Set("employees", employees, cacheEntryOptions);
+            }
+
             return View(employees);
         }
+
 
         /// View for editing an employee. Used to add or edit a user's profile. This is a non - standard view that allows the user to edit the details of an employee without needing to create a new profile.
         /// 
         /// @param id - Employee id to edit. If it is 0 then an error will be shown.
         /// 
         /// @return View showing the details of an employee that was edited or null if there was no such employee
+        [HttpGet]
         public IActionResult EditEmployee(int id)
         {
             var employee = _employeeService.GetEmployeeById(id);
@@ -115,7 +136,10 @@ namespace Microsoft_Employee_CRUD_Microservice.Controllers
         /// 
         /// @param id - Id of employee to delete
         /// 
-        /// @return Action Result with list of employees with success or error message to display on failure. TODO : Handle
+        /// @return Action Result with list of employees with success or error message to display on failure. 
+        /// 
+
+        [HttpDelete]
         public IActionResult DeleteEmployee(int id)
         {
             try
