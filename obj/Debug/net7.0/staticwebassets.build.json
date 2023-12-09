@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "gF4NnZ4MzCIJE2h3ATxD/kdsmQIZeH/tq73QfJHsWNU=",
+  "Source": "Microsoft_Employee_CRUD_Microservice",
+  "BasePath": "_content/Microsoft_Employee_CRUD_Microservice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Microsoft_Employee_CRUD_Microservice\\wwwroot",
+      "Source": "Microsoft_Employee_CRUD_Microservice",
+      "ContentRoot": "C:\\Users\\neelg\\Downloads\\Microsoft_Employee_CRUD_Microservice-master\\Microsoft_Employee_CRUD_Microservice-master\\Microsoft_Employee_CRUD_Microservice\\wwwroot\\",
+      "BasePath": "_content/Microsoft_Employee_CRUD_Microservice",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\neelg\\Downloads\\Microsoft_Employee_CRUD_Microservice-master\\Microsoft_Employee_CRUD_Microservice-master\\Microsoft_Employee_CRUD_Microservice\\wwwroot\\favicon.ico",
+      "SourceId": "Microsoft_Employee_CRUD_Microservice",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\neelg\\Downloads\\Microsoft_Employee_CRUD_Microservice-master\\Microsoft_Employee_CRUD_Microservice-master\\Microsoft_Employee_CRUD_Microservice\\wwwroot\\",
+      "BasePath": "_content/Microsoft_Employee_CRUD_Microservice",
+      "RelativePath": "favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    }
+  ]
+}

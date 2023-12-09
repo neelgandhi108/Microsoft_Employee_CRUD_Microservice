@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\neelg\\Downloads\\MvcCoreTutorial-master\\MvcCoreTutorial-master\\MvcCoreTutorial\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Microsoft_Employee_CRUD_Microservice.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Microsoft_Employee_CRUD_Microservice.props",
+      "PackagePath": "build\\Microsoft_Employee_CRUD_Microservice.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Microsoft_Employee_CRUD_Microservice.props",
+      "PackagePath": "buildMultiTargeting\\Microsoft_Employee_CRUD_Microservice.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Microsoft_Employee_CRUD_Microservice.props",
+      "PackagePath": "buildTransitive\\Microsoft_Employee_CRUD_Microservice.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

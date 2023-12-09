@@ -1,0 +1,5 @@
+{
+    "docify.commentService.programmingLanguage": "c_sharp",
+    "docify.commentService.docstringFormat": "JavaDoc",
+    "docify.commentService.inlineComments": true
+}
